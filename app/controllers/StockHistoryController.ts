@@ -38,6 +38,7 @@ export class StockHistoryController {
                     let companyDetailsRow = companyDetails.result[0][0] as CompaniesSingleRow;
 
                     const companyId = companyDetailsRow.id;
+                    const companySymbolCode = companyDetailsRow.company_symbol_code;
                     const indMoneyCompanyCode = companyDetailsRow.other_data?.indmoney_company_code;
 
                     const currentDate = new Date();
@@ -60,7 +61,7 @@ export class StockHistoryController {
                             async (value: HttpClientResponse<any>) => {
                                 var responseBody = JSON.parse(value.data.toString());
 
-                                if (companyId != null) {
+                                if (companyId != null && companySymbolCode != null) {
                                     let companyStockHistory = await this.stockHistoryDbHelper.getStockHistory(companyId, "desc", 1)
 
                                     let lastOnDate = new Date("1971-01-01");
@@ -86,6 +87,7 @@ export class StockHistoryController {
 
                                         const singleStockHistoryRow = {
                                             company_id: companyId,
+                                            company_symbol_code: companySymbolCode,
                                             on_date: onDate,
                                             open_price: openPrice,
                                             high_price: highPrice,
