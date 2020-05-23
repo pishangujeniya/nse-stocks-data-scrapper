@@ -1,0 +1,17 @@
+{
+    "database": {
+        "host": "192.168.0.125",
+        "username": "dbuser",
+        "password": "dbpassword",
+        "db_name": "dbname",
+        "port": 3306,
+        "max_connections" : 50
+    },
+    "api_details": {
+        "api_port": 3000,
+        "app_version": 1.5
+    },
+    "settings": {
+        "log_dir": "C:/NODE_TS_LOGS"
+    }
+}
