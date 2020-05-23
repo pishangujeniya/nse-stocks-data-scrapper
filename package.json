@@ -7,7 +7,7 @@
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpileOnly ./server.ts",
     "start": "node ./build/server.js",
-    "windows_timeout": "sleep 0.5",
+    "windows_timeout": "sleep 0.1",
     "windows_clean": "rmdir /S /Q \"./build\"",
     "windows_robocopy": "(robocopy \"./app/configs\" \"./build/app/configs\" /mir /NFL /NDL /NJH /NJS /NP /NS /NC) ^& exit 0",
     "linux_clean": "sudo rm -r -f \"./build\"",
@@ -50,6 +50,7 @@
     "rotating-file-stream": "^2.1.1",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.9.3",
+    "urllib": "^2.35.0",
     "util": "^0.12.3",
     "uuid": "^8.1.0"
   },

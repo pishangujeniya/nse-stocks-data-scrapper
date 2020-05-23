@@ -51,7 +51,9 @@ export class AccountsDbHelper {
                 + "?"
                 + ")";
 
-            BunyanHelper.activityLogger.info(sqlQuery);
+            if (this.globalConfig["settings"]["log_verbose"]) {
+                BunyanHelper.activityLogger.info(sqlQuery);
+            }
 
             var results = await MySQLHelper.executeQuery(sqlQuery, [
                 this.globalHelper.getNewUUID(),
