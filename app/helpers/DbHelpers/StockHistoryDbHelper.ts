@@ -24,7 +24,6 @@ export class StockHistoryDbHelper {
                 + "INSERT INTO `stocks_history`"
                 + "("
                 + "`company_id`,"
-                + "`company_symbol_code`,"
                 + "`on_date`,"
                 + "`open_price`,"
                 + "`high_price`,"
@@ -36,7 +35,6 @@ export class StockHistoryDbHelper {
                 + ")"
                 + "VALUES"
                 + "("
-                + "?,"
                 + "?,"
                 + "(SELECT STR_TO_DATE(?,'%Y-%m-%d')),"
                 + "?,"
@@ -61,7 +59,6 @@ export class StockHistoryDbHelper {
 
             let results = await MySQLHelper.executeQuery(sqlQuery, [
                 stockHistorySingleRow.company_id,
-                stockHistorySingleRow.company_symbol_code,
                 onDateValueString,
                 stockHistorySingleRow.open_price,
                 stockHistorySingleRow.high_price,
@@ -127,7 +124,6 @@ export class StockHistoryDbHelper {
 export class StocksHistorySingleRow {
     public id?: number;
     public company_id?: number;
-    public company_symbol_code?: string;
     public on_date?: Date;
     public open_price?: number;
     public high_price?: number;

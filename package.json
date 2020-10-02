@@ -10,9 +10,9 @@
     "windows_timeout": "sleep 0.1",
     "windows_clean": "rmdir /S /Q \"./build\"",
     "windows_robocopy": "(robocopy \"./app/configs\" \"./build/app/configs\" /mir /NFL /NDL /NJH /NJS /NP /NS /NC) ^& exit 0",
-    "linux_clean": "sudo rm -r -f \"./build\"",
-    "linux_copy_configs": "cp -a \"./app/configs\" \"./build/app/configs\"",
-    "create_build_dir": "mkdir \"./build\""
+    "linux_clean": "rm -r -f ./build",
+    "linux_copy_configs": "cp -a ./app/configs ./build/app/",
+    "create_build_dir": "mkdir -p ./build/app/configs"
   },
   "repository": {
     "type": "git",

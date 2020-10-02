@@ -43,7 +43,7 @@ export class StockHistoryController {
 
                     const currentDate = new Date();
                     let onDateValueString = ((currentDate.getFullYear()) + "-" + (currentDate.getMonth() + 1) + "-" + (currentDate.getDate())).toString();
-                    const urlToRequest: string = "https://indiawealth.in/api/v1/explore/stocksHistory/" + (indMoneyCompanyCode?.toString()) + "/?start_date=1971-01-01&end_date=" + onDateValueString;
+                    const urlToRequest: string = "https://indiawealth.in/api/v1/explore/stocksHistory/" + (indMoneyCompanyCode?.toString()) + "/?format=json&start_date=1971-01-01&end_date=" + onDateValueString;
 
                     var requestHeaders = {
                         headers: {
@@ -54,6 +54,7 @@ export class StockHistoryController {
                             "sec-fetch-site": "cross-site",
                         },
                         method: "GET",
+                        timeout: 50000
                     } as RequestOptions;
 
                     await urllibRequest(urlToRequest, requestHeaders)
@@ -87,7 +88,6 @@ export class StockHistoryController {
 
                                         const singleStockHistoryRow = {
                                             company_id: companyId,
-                                            company_symbol_code: companySymbolCode,
                                             on_date: onDate,
                                             open_price: openPrice,
                                             high_price: highPrice,
