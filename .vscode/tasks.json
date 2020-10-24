@@ -40,15 +40,21 @@
             "problemMatcher": []
         },
         {
+            "label": "windows_create_build_dir_task",
+            "type": "npm",
+            "script": "windows_create_build_dir",
+            "problemMatcher": []
+        },
+        {
             "label": "linux_clean_build_task",
             "type": "npm",
             "script": "linux_clean",
             "problemMatcher": []
         },
         {
-            "label": "create_build_dir_task",
+            "label": "linux_create_build_dir_task",
             "type": "npm",
-            "script": "create_build_dir",
+            "script": "linux_create_build_dir",
             "problemMatcher": []
         },
         {
@@ -62,7 +68,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "windows_clean_task",
-                "create_build_dir_task",
+                "windows_create_build_dir_task",
                 "windows_timeout_task",
                 "windows_robocopy_task",
                 "windows_timeout_task",
@@ -75,7 +81,7 @@
             "dependsOrder": "sequence",
             "dependsOn": [
                 "linux_clean_build_task",
-                "create_build_dir_task",
+                "linux_create_build_dir_task",
                 "linux_copy_configs_task",
                 "typescript_build_task"
             ]
